@@ -1,12 +1,36 @@
-//You can edit ALL of the code here
-function setup() {
-  const allEpisodes = getAllEpisodes();
-  makePageForEpisodes(allEpisodes);
-}
+const allEpisodes = getAllEpisodes();
+console.log("allEpisodes:", allEpisodes);
+const cardContainer = document.getElementById("card-container");
 
-function makePageForEpisodes(episodeList) {
-  const rootElem = document.getElementById("root");
-  rootElem.textContent = `Got ${episodeList.length} episode(s)`;
-}
+// create card for each episodes
+allEpisodes.forEach((episode) => {
+  // create link
+  const wrapperLink = document.createElement("a");
+  wrapperLink.href = episode.url;
+  wrapperLink.classList.add("card");
 
-window.onload = setup;
+  //create div
+  const card = document.createElement("div");
+
+  //create title
+  const title = document.createElement("h3");
+  title.innerText = episode.name;
+
+  //create image
+  const image = document.createElement("img");
+  image.src = episode.image.medium;
+  image.alt = episode.name;
+
+  //create desc
+  const description = document.createElement("p");
+  description.innerText = episode.summary.replace(/<p>|<\/p>/g, "");
+
+  //append all to card
+  card.appendChild(title);
+  card.appendChild(image);
+  card.appendChild(description);
+  wrapperLink.appendChild(card);
+
+  //append episodes to container
+  cardContainer.appendChild(wrapperLink);
+});
