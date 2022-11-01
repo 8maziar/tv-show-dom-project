@@ -7,11 +7,13 @@ const remainedParts = document.getElementById("remained-parts");
 // load episodes
 function loadEpisodes(episodes) {
   episodes.forEach((episode) => {
+    // load select's options
     const optionEl = document.createElement("option");
     optionEl.innerText = `${getPart(episode.season, episode.number)} - ${
       episode.name
     }`;
     selectEpisode.appendChild(optionEl);
+    // load Episodes
     cardContainer.appendChild(createcards(episode));
   });
   remainedParts.innerText = `Displaying ${episodes.length}/73 episodes`;
@@ -76,9 +78,11 @@ search.addEventListener("keyup", (e) => {
 // select the episode
 selectEpisode.addEventListener("change", () => {
   const value = selectEpisode.value.slice(9);
-  const remaindEpisodes = allEpisodes.filter(
-    (episode) => episode.name === value
-  );
+  let remaindEpisodes = allEpisodes.filter((episode) => episode.name === value);
+  if (!value) {
+    remaindEpisodes = allEpisodes;
+  }
+  search.value = "";
   cardContainer.innerHTML = "";
   loadEpisodes(remaindEpisodes);
 });

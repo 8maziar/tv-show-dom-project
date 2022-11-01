@@ -54,8 +54,38 @@ nav img {
 }
 
 /* main */
+#form-container {
+  margin: 40px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#select-episode {
+  padding: 8px;
+  background-color: var(--clr-dark);
+  color: var(--clr-yellow);
+  font-size: 1.2rem;
+  max-width: 260px;
+}
+
+#serach-container input {
+  max-width: 260px;
+  padding: 8px;
+  background-color: var(--clr-dark);
+  color: var(--clr-yellow);
+  font-size: 1.2rem;
+}
+
+#serach-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  color: var(--clr-yellow);
+  font-weight: 600;
+}
 #card-container {
-  padding: 80px 6px 40px;
+  padding: 0px 6px 40px;
   margin: 0 auto;
   display: grid;
   grid-template-rows: auto;
@@ -72,6 +102,15 @@ nav img {
 
   nav {
     font-size: 1.3rem;
+  }
+
+  #form-container {
+    flex-direction: column;
+  }
+
+  #serach-container {
+    margin-top: 12px;
+    flex-direction: column;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -129,5 +168,5 @@ footer {
   font-size: 1.4rem;
   font-weight: 700;
   text-align: center;
-  padding: 3rem 0;
+  padding: 2.4rem 0;
 }
