@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,500&display=swap");
+
 :root {
   --clr-yellow: #f6e051;
   --clr-cream: #eff1d7;
@@ -11,6 +13,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
@@ -59,11 +62,16 @@ nav img {
   grid-template-columns: repeat(3, minmax(260px, 420px));
   justify-content: center;
   gap: 26px;
+  min-height: 600px;
 }
 
 @media only screen and (max-width: 992px) {
   #card-container {
     grid-template-columns: repeat(2, minmax(260px, 400px));
+  }
+
+  nav {
+    font-size: 1.3rem;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -84,10 +92,11 @@ nav img {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   border-radius: 6px;
   transition: ease-in-out 0.2s;
+  position: relative;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .card img {
@@ -97,6 +106,17 @@ nav img {
 
 .card h3 {
   text-align: center;
+}
+
+.card p:nth-child(2) {
+  color: #50577a;
+  position: absolute;
+  top: 80px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  clip-path: polygon(0% 0%, 80% 0, 100% 50%, 80% 100%, 0% 100%);
+  background-color: var(--clr-cream);
+  padding: 8px 12px 7px 2px;
 }
 
 .card p {
