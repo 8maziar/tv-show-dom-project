@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,300;1,500&display=swap");
 
 :root {
-  --clr-yellow: #f6e051;
+  --clr-yellow: #f2f2f2;
   --clr-cream: #eff1d7;
-  --clr-light: #50577a;
-  --clr-dark: #404258;
+  --clr-light: #0b264ee8;
+  --clr-dark: #06283d;
 }
 
 *,
@@ -34,6 +34,7 @@ nav {
   padding: 10px 0;
   justify-content: space-around;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px;
 }
 
 nav .nav-title {
@@ -55,13 +56,15 @@ nav img {
 
 /* main */
 #form-container {
-  margin: 40px 0;
+  margin: 30px 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 10px;
 }
 
 #select-episode {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px;
   padding: 8px;
   background-color: var(--clr-dark);
   color: var(--clr-yellow);
@@ -70,7 +73,7 @@ nav img {
 }
 
 #serach-container input {
-  max-width: 260px;
+  max-width: 200px;
   padding: 8px;
   background-color: var(--clr-dark);
   color: var(--clr-yellow);
@@ -79,7 +82,7 @@ nav img {
 
 #serach-container {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: center;
   color: var(--clr-yellow);
   font-weight: 600;
@@ -103,15 +106,6 @@ nav img {
   nav {
     font-size: 1.3rem;
   }
-
-  #form-container {
-    flex-direction: column;
-  }
-
-  #serach-container {
-    margin-top: 12px;
-    flex-direction: column;
-  }
 }
 @media only screen and (max-width: 600px) {
   #card-container {
@@ -120,6 +114,18 @@ nav img {
 
   .nav-list {
     display: none;
+  }
+  #form-container {
+    flex-direction: column;
+  }
+
+  #serach-container {
+    margin-top: 12px;
+    flex-direction: column;
+  }
+
+  #serach-container input {
+    max-width: 260px;
   }
 }
 

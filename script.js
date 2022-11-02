@@ -13,10 +13,10 @@ function loadEpisodes(episodes) {
       episode.name
     }`;
     selectEpisode.appendChild(optionEl);
-    // load Episodes
+    // create card
     cardContainer.appendChild(createcards(episode));
   });
-  remainedParts.innerText = `Displaying ${episodes.length}/73 episodes`;
+  remainedParts.innerText = `Displaying ${episodes.length}/73`;
 }
 loadEpisodes(allEpisodes);
 
@@ -63,26 +63,29 @@ function getPart(season, episode) {
   }`;
 }
 
-// search for episode
+// search for episodes
 search.addEventListener("keyup", (e) => {
-  const value = e.target.value;
-  const remaindEpisodes = allEpisodes.filter(
+  const value = e.target.value.toLowerCase();
+  const remainedEpisodes = allEpisodes.filter(
     (episode) =>
-      episode.name.toLowerCase().includes(value.toLowerCase()) ||
-      episode.summary.toLowerCase().includes(value.toLowerCase())
+      episode.name.toLowerCase().includes(value) ||
+      episode.summary.toLowerCase().includes(value)
   );
+  selectEpisode.value = "All";
   cardContainer.innerHTML = "";
-  loadEpisodes(remaindEpisodes);
+  loadEpisodes(remainedEpisodes);
 });
 
-// select the episode
+// select the episode with select element
 selectEpisode.addEventListener("change", () => {
   const value = selectEpisode.value.slice(9);
-  let remaindEpisodes = allEpisodes.filter((episode) => episode.name === value);
+  let remainedEpisodes = allEpisodes.filter(
+    (episode) => episode.name === value
+  );
   if (!value) {
-    remaindEpisodes = allEpisodes;
+    remainedEpisodes = allEpisodes;
   }
   search.value = "";
   cardContainer.innerHTML = "";
-  loadEpisodes(remaindEpisodes);
+  loadEpisodes(remainedEpisodes);
 });
