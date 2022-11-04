@@ -8,11 +8,13 @@ const remainedParts = document.getElementById("remained-parts");
 function loadEpisodes(episodes) {
   episodes.forEach((episode) => {
     // load select's options
-    const optionEl = document.createElement("option");
-    optionEl.innerText = `${getPart(episode.season, episode.number)} - ${
-      episode.name
-    }`;
-    selectEpisode.appendChild(optionEl);
+    if (episodes.length === allEpisodes.length) {
+      const optionEl = document.createElement("option");
+      optionEl.innerText = `${getPart(episode.season, episode.number)} - ${
+        episode.name
+      }`;
+      selectEpisode.appendChild(optionEl);
+    }
     // create card
     cardContainer.appendChild(createcards(episode));
   });
