@@ -71,11 +71,11 @@ nav img {
   background-color: var(--clr-dark);
   color: var(--clr-yellow);
   font-size: 1.2rem;
-  max-width: 250px;
+  max-width: 280px;
 }
 
 #form-container input {
-  max-width: 250px;
+  max-width: 280px;
   padding: 8px;
   background-color: var(--clr-dark);
   color: var(--clr-yellow);
