@@ -95,7 +95,7 @@ function getTheEpisodes(id) {
   selectEpisode.classList.add("visible");
 }
 
-// select tv show +++++++++++++++++++++++++++++++++++++
+// select tv show
 selectShow.addEventListener("change", () => {
   getTheEpisodes();
 });

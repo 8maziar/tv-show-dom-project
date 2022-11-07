@@ -58,7 +58,7 @@ nav img {
   background-color: var(--clr-dark);
   color: var(--clr-yellow);
   font-size: 1.2rem;
-  max-width: 280px;
+  width: 280px;
 }
 
 #select-episode {
@@ -194,7 +194,7 @@ nav img {
 .card p:nth-child(7) {
   font-weight: 700;
   font-size: 18px;
-  padding: 6px;
+  padding: 12px;
 }
 
 .show {
