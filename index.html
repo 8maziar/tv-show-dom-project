@@ -13,28 +13,20 @@
       <nav>
         <div class="nav-title">
           <a href=""><img src="./watching-a-movie.png" alt="" /></a>
-          <p>TV Show Project</p>
         </div>
-        <div>
-          <ul class="nav-list">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+        <div id="form-container">
+          <select name="select-show" id="select-show"></select>
+          <select name="select-episode" id="select-episode"></select>
+          <input
+            type="text"
+            id="search"
+            autocomplete="off"
+            placeholder="Search..." />
+          <span id="remained-parts"></span>
         </div>
       </nav>
     </header>
     <main>
-      <div id="form-container">
-        <select name="select-show" id="select-show"></select>
-        <select name="select-episode" id="select-episode"></select>
-        <input
-          type="text"
-          id="search"
-          autocomplete="off"
-          placeholder="Search..." />
-        <span id="remained-parts"></span>
-      </div>
       <div id="card-container"></div>
     </main>
     <footer>
