@@ -124,6 +124,12 @@ nav img {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
+
+  #select-episode,
+  #select-show,
+  #search {
+    width: 280px;
+  }
 }
 
 .card {
