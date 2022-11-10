@@ -141,6 +141,7 @@ nav img {
   border-radius: 6px;
   transition: ease-in-out 0.2s;
   position: relative;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -192,9 +193,10 @@ nav img {
 }
 
 .card p:nth-child(7) {
-  font-weight: 700;
-  font-size: 18px;
-  padding: 12px;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 4px;
+  color: white;
 }
 
 .show {
