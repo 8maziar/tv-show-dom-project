@@ -3,10 +3,10 @@ const search = document.getElementById("search");
 const selectEpisode = document.getElementById("select-episode");
 const selectShow = document.getElementById("select-show");
 const remainedParts = document.getElementById("remained-parts");
+const btnBack = document.getElementById("btn-back");
 const showsList = getAllShows();
 
 let allEpisodes;
-let isEpisodesDisplayed = false;
 
 // load shows in select element
 function loadShows(shows) {
@@ -25,7 +25,7 @@ function loadShows(shows) {
       const showDiv = createShowCard(show);
       cardContainer.appendChild(showDiv);
     });
-  remainedParts.innerText = `Displaying ${shows.length}/${showsList.length}`;
+  remainedParts.innerText = `${shows.length}/${showsList.length}`;
 }
 loadShows(showsList);
 
@@ -50,7 +50,7 @@ function fetchEpisodes(id) {
 // load episodes
 function loadEpisodes(episodes) {
   episodes.forEach((episode) => {
-    console.log(episode);
+    // console.log(episode);
     // create card
     cardContainer.appendChild(createEpisodecard(episode));
   });
@@ -85,10 +85,9 @@ function getTheEpisodes(id) {
   }
   if (value === "All") {
     loadShows(showsList);
-    isEpisodesDisplayed = false;
     selectEpisode.value = "All";
     search.value = "";
-    selectEpisode.classList.remove("visible");
+    selectEpisode.innerHTML = "";
   } else {
     showID = showsList.find((show) => show.name === value).id;
     fetchEpisodes(showID);
@@ -98,8 +97,6 @@ function getTheEpisodes(id) {
     window.scrollTo(0, 0);
   }
   search.value = "";
-  isEpisodesDisplayed = true;
-  selectEpisode.classList.add("visible");
 }
 
 // select tv show
@@ -109,7 +106,7 @@ selectShow.addEventListener("change", () => {
 
 // search for episodes
 search.addEventListener("keyup", (e) => {
-  if (!isEpisodesDisplayed) {
+  if (selectShow.value === "All") {
     const value = e.target.value.toLowerCase();
     const remainedShows = showsList.filter(
       (show) =>
@@ -145,6 +142,14 @@ selectEpisode.addEventListener("change", () => {
   search.value = "";
   cardContainer.innerHTML = "";
   loadEpisodes(remainedEpisodes);
+});
+
+// go to tv show on click back btn
+btnBack.addEventListener("click", () => {
+  loadShows(showsList);
+  selectEpisode.value = "All";
+  search.value = "";
+  selectEpisode.innerHTML = "";
 });
 
 ///////////////////////////////////////////////////////// create shows card
@@ -229,6 +234,7 @@ function createEpisodecard(episode) {
   const wrapperLink = document.createElement("a");
   wrapperLink.classList.add("card");
   wrapperLink.href = episode.url;
+  wrapperLink.target = "_blank";
 
   //create div
   const card = document.createElement("div");
@@ -283,3 +289,19 @@ function getPart(season, episode) {
     episode < 10 ? "0" + episode : episode
   }`;
 }
+
+//top link
+const topLink = document.getElementById("jump-to-top");
+window.addEventListener("scroll", function () {
+  const scrollHeight = window.pageYOffset;
+
+  if (scrollHeight > 500) {
+    topLink.classList.add("show-link");
+  } else {
+    topLink.classList.remove("show-link");
+  }
+});
+
+topLink.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+});
