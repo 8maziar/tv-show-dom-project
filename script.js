@@ -50,7 +50,7 @@ function fetchEpisodes(id) {
 // load episodes
 function loadEpisodes(episodes) {
   episodes.forEach((episode) => {
-    // console.log(episode);
+    console.log(episode);
     // create card
     cardContainer.appendChild(createEpisodecard(episode));
   });
@@ -254,22 +254,24 @@ function createEpisodecard(episode) {
 
   //create desc
   const description = document.createElement("p");
-  const editedSummary = episode.summary.replace(/<.{1,3}>/g, "");
   const extraSummary = document.createElement("span");
   const fullSummary = document.createElement("p");
-  fullSummary.innerText = editedSummary;
-  if (editedSummary.length < 160) {
-    description.innerText = editedSummary;
-  } else {
-    description.innerText = editedSummary.slice(0, 160);
-    // create span for extra summary
-    extraSummary.innerText = "... hover to read more";
-    extraSummary.addEventListener("mouseenter", () => {
-      fullSummary.classList.add("show");
-    });
-    extraSummary.addEventListener("mouseout", () => {
-      fullSummary.classList.remove("show");
-    });
+  if (episode.summary) {
+    const editedSummary = episode.summary.replace(/<.{1,3}>/g, "");
+    fullSummary.innerText = editedSummary;
+    if (editedSummary.length < 160) {
+      description.innerText = editedSummary;
+    } else {
+      description.innerText = editedSummary.slice(0, 160);
+      // create span for extra summary
+      extraSummary.innerText = "... hover to read more";
+      extraSummary.addEventListener("mouseenter", () => {
+        fullSummary.classList.add("show");
+      });
+      extraSummary.addEventListener("mouseout", () => {
+        fullSummary.classList.remove("show");
+      });
+    }
   }
 
   //append all to card
