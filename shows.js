@@ -2685,53 +2685,6 @@ function getAllShows() {
       },
     },
     {
-      id: 1127,
-      url: "http://www.tvmaze.com/shows/1127/cosmos",
-      name: "Cosmos",
-      type: "Documentary",
-      language: "English",
-      genres: [],
-      status: "Ended",
-      runtime: 60,
-      premiered: "1980-09-28",
-      officialSite: null,
-      schedule: {
-        time: "20:00",
-        days: ["Sunday"],
-      },
-      rating: {
-        average: 8.9,
-      },
-      weight: 96,
-      network: {
-        id: 85,
-        name: "PBS",
-        country: {
-          name: "United States",
-          code: "US",
-          timezone: "America/New_York",
-        },
-      },
-      webChannel: null,
-      externals: {
-        tvrage: 2231,
-        thetvdb: 74995,
-        imdb: "tt0081846",
-      },
-      image: null,
-      summary:
-        "<p>the season has beena dded as 1st season  to: https://www.tvmaze.com/shows/1128/cosmos</p>",
-      updated: 1587447627,
-      _links: {
-        self: {
-          href: "http://api.tvmaze.com/shows/1127",
-        },
-        previousepisode: {
-          href: "http://api.tvmaze.com/episodes/103866",
-        },
-      },
-    },
-    {
       id: 2103,
       url: "http://www.tvmaze.com/shows/2103/dragon-ball-z",
       name: "Dragon Ball Z",

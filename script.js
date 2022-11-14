@@ -41,7 +41,7 @@ function fetchEpisodes(id) {
     })
     .catch((err) => {
       const paraEl = document.createElement("p");
-      paraEl.innerText = "Something went wrong";
+      paraEl.innerText = "Something wrong";
       cardContainer.innerHTML = "";
       cardContainer.appendChild(paraEl);
     });
@@ -50,6 +50,7 @@ function fetchEpisodes(id) {
 // load episodes
 function loadEpisodes(episodes) {
   episodes.forEach((episode) => {
+    console.log(episode);
     // create card
     cardContainer.appendChild(createEpisodecard(episode));
   });
@@ -77,19 +78,25 @@ function episodeOptions() {
 // fetch tv show
 function getTheEpisodes(id) {
   const value = selectShow.value;
+  let showID;
+  if (value === "All" && id) {
+    showID = id;
+    fetchEpisodes(showID);
+  }
   if (value === "All") {
     loadShows(showsList);
     isEpisodesDisplayed = false;
     selectEpisode.value = "All";
     search.value = "";
     selectEpisode.classList.remove("visible");
+  } else {
+    showID = showsList.find((show) => show.name === value).id;
+    fetchEpisodes(showID);
   }
   if (id) {
     selectShow.value = showsList.find((show) => show.id === id).name;
     window.scrollTo(0, 0);
   }
-  const showID = id || showsList.find((show) => show.name === value).id;
-  fetchEpisodes(showID);
   search.value = "";
   isEpisodesDisplayed = true;
   selectEpisode.classList.add("visible");
@@ -154,7 +161,8 @@ function createShowCard(show) {
 
   //create title
   const title = document.createElement("h3");
-  title.innerText = show.name;
+  const titleText = show.name.length > 28 ? show.name.slice(0, 28) : show.name;
+  title.innerText = titleText;
 
   // create rating
   const rating = document.createElement("p");
@@ -171,10 +179,10 @@ function createShowCard(show) {
   const extraSummary = document.createElement("span");
   const fullSummary = document.createElement("p");
   fullSummary.innerText = editedSummary;
-  if (editedSummary.length < 160) {
+  if (editedSummary.length < 80) {
     description.innerText = editedSummary;
   } else {
-    description.innerText = editedSummary.slice(0, 160);
+    description.innerText = editedSummary.slice(0, 80);
     // create span for extra summary
     extraSummary.innerText = "Hover to read more";
     extraSummary.addEventListener("mouseenter", () => {
@@ -235,7 +243,7 @@ function createEpisodecard(episode) {
 
   //create image
   const image = document.createElement("img");
-  image.src = episode.image.medium;
+  image.src = episode?.image?.medium || "./no img.jpg";
   image.alt = episode.name;
 
   //create desc

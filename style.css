@@ -88,7 +88,7 @@ nav img {
   margin: 20px auto;
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: repeat(3, minmax(260px, 420px));
+  grid-template-columns: repeat(4, minmax(200px, 360px));
   justify-content: center;
   gap: 26px;
   min-height: 600px;
@@ -101,7 +101,7 @@ nav img {
 
 @media only screen and (max-width: 992px) {
   #card-container {
-    grid-template-columns: repeat(2, minmax(260px, 400px));
+    grid-template-columns: repeat(2, minmax(200px, 340px));
   }
 
   #select-episode,
@@ -112,7 +112,7 @@ nav img {
 }
 @media only screen and (max-width: 600px) {
   #card-container {
-    grid-template-columns: minmax(260px, 400px);
+    grid-template-columns: repeat(1, minmax(200px, 340px));
   }
 
   nav {
