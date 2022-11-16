@@ -102,7 +102,7 @@ nav img {
   margin: 20px auto;
   display: grid;
   grid-template-rows: auto;
-  grid-template-columns: repeat(4, minmax(200px, 360px));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 350px));
   justify-content: center;
   gap: 26px;
   min-height: 600px;
@@ -113,17 +113,7 @@ nav img {
   color: var(--clr-yellow);
 }
 
-@media only screen and (max-width: 1250px) {
-  #card-container {
-    grid-template-columns: repeat(3, minmax(200px, 340px));
-  }
-}
-
 @media only screen and (max-width: 992px) {
-  #card-container {
-    grid-template-columns: repeat(2, minmax(200px, 340px));
-  }
-
   #select-episode,
   #select-show,
   #search {
@@ -131,10 +121,6 @@ nav img {
   }
 }
 @media only screen and (max-width: 600px) {
-  #card-container {
-    grid-template-columns: repeat(1, minmax(200px, 340px));
-  }
-
   nav {
     flex-direction: column;
     align-items: center;
@@ -203,7 +189,7 @@ nav img {
 .card p:nth-child(6) {
   display: none;
   position: absolute;
-  width: 100%;
+  width: 360px;
   background-color: black;
   color: var(--clr-yellow);
   z-index: 2;

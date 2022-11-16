@@ -14759,7 +14759,7 @@ function getAllShows() {
           "http://static.tvmaze.com/uploads/images/original_untouched/22/56665.jpg",
       },
       summary:
-        "<p>Der Tatortreiniger ist eine deutsche Comedy-Fernsehserie des Norddeutschen Rundfunks mit Bjarne Mädel. Regie führt Arne Feldhusen und die Drehbücher stammen von Mizzi Meyer.</p>",
+        "<p>Der Tatortreiniger ist eine deutsche Comedy des Norddeutschen Rundfunks mit Bjarne Mädel. Regie führt Arne Feldhusen und die Drehbücher stammen von Mizzi Meyer.</p>",
       updated: 1562688140,
       _links: {
         self: {

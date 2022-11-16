@@ -50,7 +50,6 @@ function fetchEpisodes(id) {
 // load episodes
 function loadEpisodes(episodes) {
   episodes.forEach((episode) => {
-    console.log(episode);
     // create card
     cardContainer.appendChild(createEpisodecard(episode));
   });
