@@ -3,17 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Show Project | My Name (My GitHub username)</title>
+    <title>TV Show Project | Maziar Mansouri (8Maziar)</title>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
-    <div id="root">
-    </div>
-
+    <header>
+      <nav>
+        <div class="nav-title">
+          <a href=""><img src="./watching-a-movie.png" alt="" /></a>
+        </div>
+        <div id="form-container">
+          <select name="select-show" id="select-show"></select>
+          <select name="select-episode" id="select-episode"></select>
+          <input
+            type="text"
+            id="search"
+            autocomplete="off"
+            placeholder="Search..." />
+          <div>
+            <img src="./back.png" id="btn-back" /><span
+              id="remained-parts"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div id="card-container"></div>
+    </main>
+    <footer>
+      The data has (originally) come from <a href="tvmaze.com">TVMaze.com</a>
+    </footer>
+    <a id="jump-to-top" class="jump-to-top"><img src="./up-arrow.png" /></a>
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
+
+    <!-- loads show list -->
+    <script src="./shows.js"></script>
 
     <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
